@@ -8,6 +8,61 @@
 <body>
 
 <script>
+
+function Army() {
+  this.infantry = [];
+  this.cavalry = [];
+  this.artillery = [];
+  this.officers = [];
+  this.strategic_map_x = 0;
+  this.strategic_map_y = 0;
+}
+
+function Fleet() {
+  this.cruisers = [];
+  this.battleships = [];
+  this.transports = [];
+  this.officers = [];
+  this.strategic_map_x = 0;
+  this.strategic_map_y = 0;
+}
+
+function Officer() { //spies are officers. Can't see what's happening on the map without somebody there. 
+  this.experience = 0;
+  this.money = 0;
+  this.fame = 0;
+  this.infamy = 0;
+  this.tactical_map_x = 0;
+  this.tactical_map_y = 0;
+  this.special_ability = null;
+}
+
+function Player() {
+  this.fame = 0;
+  this.infamy = 0;
+  this.officers = 0;
+}
+
+function CombatUnit() { //a ship, a cavalry company, a battalion of infantry, etc
+  this.type = 0;
+  this.experience = 0;
+  this.morale = 1;
+  this.max_hp = 1;
+  this.hp = this.max_hp;
+  this.tactical_map_x = 0;
+  this.tactical_map_y = 0;
+}
+
+function StrategicMapObject() { //fort, tavern, dock, stable, town? house?
+  this.strategic_map_x = 0;
+  this.strategic_map_y = 0;
+}
+
+function TacticalMapObject() { //if needed
+  this.strategic_map_x = 0;
+  this.strategic_map_y = 0;
+}
+
 </script>
 
 </body>
