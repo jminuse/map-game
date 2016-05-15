@@ -53,20 +53,74 @@ function CombatUnit() { //a ship, a cavalry company, a battalion of infantry, et
   this.tactical_map_y = 0;
 }
 
-function StrategicMap() { //
-  
+function StrategicMap(width, height) { //
+  this.tiles = [];
+  for(var w=0; w<width; w++) {
+    this.tiles.push([]);
+    for(var h=0; h<height; h++)
+      this.tiles[w].append(new StrategicMapTile);
+  }
+  this.onclick = function(m) {
+    
+  }
 }
 
-function TacticalMap() { //
-  
+function TacticalMap(width, height) { //
+  this.tiles = [];
+  for(var w=0; w<width; w++) {
+    this.tiles.push([]);
+    for(var h=0; h<height; h++)
+      this.tiles[w].append(new TacticalMapTile);
+  }
+  this.onclick = function(m) {
+    
+  }
 }
 
 function StrategicMapTile() { //fort, tavern, dock, stable, town? house?
   this.elevation = 0;
+  this.html_object = null;
 }
 
 function TacticalMapTile() { //if needed
   this.elevation = 0;
+  this.html_object = null;
+}
+
+function Move() {
+  this.start_x = 0;
+  this.start_y = 0;
+  this.end_x = 0;
+  this.end_y = 0;
+}
+
+function Turn() {
+  this.moves = [];
+}
+
+function Game(n_players) {
+  this.strategic_map = new StrategicMap();
+  this.players = [];
+  for(var i=0; i<n_players; i++)
+    this.players.push( new Player() );
+  this.current_player_number = 0;
+  this.current_player = this.players[this.current_player_number];
+  this.turn_history = [];
+  this.strategic_mode = 0;
+  this.tactical_mode = 1;
+  this.mode = this.strategic_mode;
+  
+  this.turn_number = 0;
+  while(true) {
+    this.mode = strategic_mode;
+    
+    this.turn_number++;
+    this.current_player_number++;
+    if(this.current_player_number>=this.players.length) {
+      this.current_player_number = 0;
+    }
+    this.current_player = this.players[this.current_player_number];
+  }
 }
 
 </script>
