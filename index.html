@@ -63,6 +63,8 @@ function Map(width, height) { //
   this.clicked = null; //a tile
 }
 
+function StrategicMap() {}
+function TacticalMap() {}
 StrategicMap.prototype = new Map();
 TacticalMap.prototype = new Map();
 StrategicMap.prototype.onclick = function(m) {
